@@ -1,14 +1,10 @@
 package main
 
-import (
-	"fmt"
-	"math"
+import "fmt"
 
-	"github.com/Hwisaek/Go/nomadcoder_go-for-beginners/something"
-)
-
+func multiply(a, b int) int {
+	return a * b
+}
 func main() {
-	fmt.Println("Hello world!", math.Pi)
-	something.SayHello()
-
+	fmt.Println(multiply(2, 2))
 }
