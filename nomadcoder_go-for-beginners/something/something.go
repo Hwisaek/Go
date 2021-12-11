@@ -1,6 +1,8 @@
 package something
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func sayBye() {
 	fmt.Println("Bye")
