@@ -11,10 +11,11 @@ func main() {
 	for _, person := range people {
 		go isSexy(person, c)
 	}
-	fmt.Println("Waiting for messages")
-	for i := 0; i < len(people); i++ {
-		fmt.Println("Received this message: ", <-c)
-	}
+	fmt.Println(<-c)
+	fmt.Println(<-c)
+	fmt.Println(<-c)
+	fmt.Println(<-c)
+	fmt.Println(<-c)
 }
 
 func isSexy(person string, c chan string) {
