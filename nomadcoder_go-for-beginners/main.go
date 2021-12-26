@@ -3,11 +3,15 @@ package main
 import (
 	"fmt"
 
-	"github.com/Hwisaek/Go/nomadcoder_go-for-beginners/accounts"
+	"github.com/Hwisaek/Go/nomadcoder_go-for-beginners/mydict"
 )
 
 func main() {
-	account := accounts.NewAccount("nico")
-	account.Deposit(10)
-	fmt.Println(account)
+	dictionary := mydict.Dictioinary{"first": "First word"}
+	definition, err := dictionary.Search("first")
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(definition)
+	}
 }
