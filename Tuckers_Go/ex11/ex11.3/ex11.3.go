@@ -19,7 +19,7 @@ func main() {
 			fmt.Println("숫자로 입력하세요")
 
 			// 키보드 버퍼를 지웁니다.
-			stdin.ReadString('\n')
+			_, _ = stdin.ReadString('\n')
 			continue
 		}
 		fmt.Printf("입력하신 숫자는 %d입니다.", number)

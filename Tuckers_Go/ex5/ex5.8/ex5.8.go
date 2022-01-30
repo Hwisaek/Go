@@ -19,7 +19,7 @@ func main() {
 		fmt.Println(err)
 
 		// '\n' 문자가 나타날 때 까지 버퍼에서 문자를 읽음
-		stdin.ReadString('\n')
+		_, _ = stdin.ReadString('\n')
 	} else {
 		fmt.Println(n, a, b)
 	}
@@ -31,7 +31,7 @@ func main() {
 		fmt.Println(err)
 
 		// '\n' 문자가 나타날 때 까지 버퍼에서 문자를 읽음
-		stdin.ReadString('\n')
+		_, _ = stdin.ReadString('\n')
 	} else {
 		fmt.Println(n, a, b)
 	}
