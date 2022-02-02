@@ -8,15 +8,6 @@ import (
 	"github.com/labstack/echo"
 )
 
-<<<<<<< HEAD
-func main() {
-	dictionary := mydict.Dictioinary{"first": "First word"}
-	baseWord := "hello"
-	dictionary.Add(baseWord, "First")
-	dictionary.Update(baseWord, "Second")
-	word, _ := dictionary.Search(baseWord)
-	fmt.Println(word)
-=======
 const fileName string = "jobs.csv"
 
 func handleHome(c echo.Context) error {
@@ -36,5 +27,4 @@ func main() {
 	e.GET("/", handleHome)
 	e.POST("/scrape", handleScrape)
 	e.Logger.Fatal(e.Start(":1323"))
->>>>>>> 2d21ccec975b5446a5bd706dc872c3403dea5dbb
 }
