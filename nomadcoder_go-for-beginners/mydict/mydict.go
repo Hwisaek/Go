@@ -28,3 +28,15 @@ func (d Dictioinary) Add(word, def string) error {
 	}
 	return nil
 }
+
+func (d Dictioinary) Update(word, definition string) {
+	_, err := d.Search(word)
+
+	switch err {
+	case nil:
+		return errWordExists
+	case errNotFound:
+		d[word] = def
+	}
+	return nil
+}
