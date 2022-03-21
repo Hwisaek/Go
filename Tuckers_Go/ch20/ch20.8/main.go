@@ -9,6 +9,6 @@ type Student struct {
 }
 
 func main() {
-	var stringer Stringer
-	stringer.(*Student)
+	//var stringer Stringer
+	//stringer.(*Student)
 }
