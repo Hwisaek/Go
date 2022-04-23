@@ -20,9 +20,10 @@ var lastId int
 
 func MakeWebHandler() http.Handler {
 	mux := mux.NewRouter()
-	mux.HandleFunc("/students", GetStudentListHandler).Methods("GET")
-	mux.HandleFunc("/students/{id:[0-9]+}", GetStudentHandler).Methods("GET")
-	mux.HandleFunc("/students", PostStudentHandler).Methods("POST")
+	mux.HandleFunc("/students", GetStudentListHandler).Methods(http.MethodGet)
+	mux.HandleFunc("/students/{id:[0-9]+}", GetStudentHandler).Methods(http.MethodGet)
+	mux.HandleFunc("/students", PostStudentHandler).Methods(http.MethodPost)
+	mux.HandleFunc("/students/{id:[0-9]+}", DeleteStudentHandler).Methods(http.MethodDelete)
 
 	students = make(map[int]Student)
 	students[1] = Student{1, "aaa", 16, 87}
@@ -30,6 +31,17 @@ func MakeWebHandler() http.Handler {
 	lastId = 2
 
 	return mux
+}
+
+func DeleteStudentHandler(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	id, _ := strconv.Atoi(vars["id"])
+	_, ok := students[id]
+	if !ok {
+		w.WriteHeader(http.StatusNotFound)
+	}
+	delete(students, id)
+	w.WriteHeader(http.StatusOK)
 }
 
 func PostStudentHandler(w http.ResponseWriter, r *http.Request) {
